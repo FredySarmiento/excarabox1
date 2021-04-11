@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 
-const EscaraboxForm = () =>{
+const EscaraboxForm = (props) =>{
+
     const initialStateValues={
         nombre:'',
         apellido:'',
@@ -19,7 +20,8 @@ const EscaraboxForm = () =>{
 
     const handleSubmit = e =>{
         e.preventDefault();
-        console.log(values)
+        props.addOrEdit(values);
+        setValues({...initialStateValues})
     }
     return (
     <div className="container">
@@ -27,8 +29,8 @@ const EscaraboxForm = () =>{
         <div className="underline"> </div>
         <div className="icon_wrapper">
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="100%" height="50px" viewBox="0 0 1280.000000 733.000000"
- preserveAspectRatio="xMidYMid meet">
+        width="100%" height="50px" viewBox="0 0 1280.000000 733.000000"
+        preserveAspectRatio="xMidYMid meet">
 <metadata>
 Created by potrace 1.15, written by Peter Selinger 2001-2017
 </metadata>
@@ -211,7 +213,9 @@ m1388 -1018 c13 -34 13 -34 -10 -34 -12 0 -26 -12 -35 -30 -9 -18 -23 -30 -36
             placeholder="nombre"
             name="nombre"
             id="nombre_input" required
-            onChange={handleInputChange}></input>
+            onChange={handleInputChange}
+            value={values.nombre}>
+            </input>
             </div>
             <div className="derecha">
             <label type="text" name="apellido1">
@@ -221,7 +225,8 @@ m1388 -1018 c13 -34 13 -34 -10 -34 -12 0 -26 -12 -35 -30 -9 -18 -23 -30 -36
             placeholder="Apellido"
             name="apellido"
             id="apellido_input" required
-            onChange={handleInputChange}></input>
+            onChange={handleInputChange}
+            value={values.apellido}></input>
             </div>
             <div className="centrado">
             <label type="text" name="name">
@@ -231,7 +236,9 @@ m1388 -1018 c13 -34 13 -34 -10 -34 -12 0 -26 -12 -35 -30 -9 -18 -23 -30 -36
             placeholder="Cedula de ciudadania"
             name="cedula"
             id="cedula_input" required
-            onChange={handleInputChange}></input>
+            onChange={handleInputChange}
+            value={values.cedula}>
+            </input>
             </div>
             <div className="centrado">
             <label type="text" name="name">
@@ -240,7 +247,9 @@ m1388 -1018 c13 -34 13 -34 -10 -34 -12 0 -26 -12 -35 -30 -9 -18 -23 -30 -36
             type="text"
             placeholder="Celular "
             name="celular" id="celular_input" required
-            onChange={handleInputChange}></input>
+            onChange={handleInputChange}
+            value={values.celular}>
+            </input>
             </div>
             <div className="centrado">
             <label type="text" name="name">
@@ -249,13 +258,15 @@ m1388 -1018 c13 -34 13 -34 -10 -34 -12 0 -26 -12 -35 -30 -9 -18 -23 -30 -36
             placeholder="Mail"
             name="mail"
             id="mail_input" required
-            onChange={handleInputChange}></input>
+            onChange={handleInputChange}
+            value={values.mail}></input>
             </div>
-            <select 
-            placeholder="Subject line" 
-            name="bicicleta" 
+            <select
+            placeholder="Subject line"
+            name="bicicleta"
             id="bicicleta_input" required
-            onChange={handleInputChange}>
+            onChange={handleInputChange}
+            value={values.bicicleta}>
                 <option hidden defaultValue>BICICLETA</option>
                 <option value ="BMC">BMC</option>
                 <option value ="BIANCHI">BIANCHI</option>
@@ -279,7 +290,8 @@ m1388 -1018 c13 -34 13 -34 -10 -34 -12 0 -26 -12 -35 -30 -9 -18 -23 -30 -36
                 placeholder="Subject line"
                 name="color"
                 id="marco_input" required
-                onChange={handleInputChange}>
+                onChange={handleInputChange}
+                value={values.color}>
                 <option hidden defaultValue>COLOR MARCO</option>
                 <option value="NEGRO">NEGRO</option>
                 <option value="AZUL">AZUL</option>
